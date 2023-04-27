@@ -38,7 +38,7 @@ const getJob = (req, res) => {
 
         .then((jobs) => {
             res.json(jobs);
-            console.log('coucou');
+
         })
         .catch((err) => {
             res.status(500).send(err.message);
@@ -73,6 +73,7 @@ const createJob = (req, res) => {
 };
 
 const updateJob = (req, res) => {
+    console.log('reg.body', req.body);
     Job.findOneAndUpdate(
         { _id: req.params.jobID },
         {
@@ -88,14 +89,17 @@ const updateJob = (req, res) => {
                 website: req.body.website,
                 apply: req.body.apply,
                 description: req.body.description,
-                requirements: req.body.requirements,
-                role: req.body.role,
+                "requirements.content": req.body.requirements.content,
+                "requirements.items": req.body.requirements.items,
+                "role.content": req.body.role.content,
+                "role.items": req.body.role.items,
             },
         },
         { new: true }
     )
         .then((job) => {
             res.json(job);
+            console.log('update');
         })
         .catch((err) => {
             res.status(500).send(err.message);
@@ -103,9 +107,15 @@ const updateJob = (req, res) => {
 };
 
 const deleteJob = (req, res) => {
-    Job.deleteOne({ _id: req.params.jobID })
-        .then(() => res.json({ message: "Job Deleted" }))
-        .catch((err) => res.send(err));
+    Job.deleteOne(
+        { _id: req.params.jobID })
+        .then(() =>
+            res.json({
+                message: "Job Deleted"
+            }))
+        .catch((err) =>
+            res.send(err)
+        );
 };
 
 module.exports = {

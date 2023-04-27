@@ -7,11 +7,12 @@ const JobSchema = new mongoose.Schema({
     },
     logo: {
         type: String,
-        default: false,
+        default: "https://i.postimg.cc/zD6trrNG/Ue-Tu-X5-Pk-male-6-cartoon8.png"
+
     },
     logoBackground: {
         type: String,
-        required: true,
+        required: false,
     },
     position: {
         type: String,
@@ -44,21 +45,21 @@ const JobSchema = new mongoose.Schema({
     requirements: {
         content: {
             type: String,
-            required: true,
+            required: false,
         },
         items: {
             type: Array,
-            required: true,
+            required: false,
         },
     },
     role: {
         content: {
             type: String,
-            required: true,
+            required: false,
         },
         items: {
             type: Array,
-            required: true,
+            required: false,
         },
     },
 });

@@ -1,10 +1,14 @@
 import './index.css';
 import JobCard from './JobCard';
-
 import { useEffect, useState } from 'react';
 
 
-const JobCards = ({ datas, handleMore }) => {
+const JobCards = ({
+    datas,
+    handleMore,
+    //handleDelete, 
+    handleUpdate,
+    admin }) => {
 
 
     return (
@@ -21,7 +25,11 @@ const JobCards = ({ datas, handleMore }) => {
                             company={el.company}
                             position={el.position}
                             location={el.location}
-                            id={el._id} />)
+                            id={el._id}
+                            admin={admin}
+                            //handleDelete={handleDelete}
+                            handleUpdate={handleUpdate}
+                        />)
                 })}
             </section>
             <div className="btn-center">

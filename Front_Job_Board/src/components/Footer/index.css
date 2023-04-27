@@ -7,3 +7,21 @@
     background-color: white;
     margin-top: 8rem;
 }
+
+@media screen and (max-width: 768px) {
+    .Footer {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-left {
+        display: none;
+    }
+
+    .footer-right {
+        width: 90%;
+    }
+
+    .footer-btn {
+        width: 100%;
+    }
+}

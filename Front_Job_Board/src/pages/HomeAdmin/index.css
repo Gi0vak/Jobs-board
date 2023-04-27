@@ -2,7 +2,7 @@
     position: relative
 }
 
-.admin-btn {
+.add-job-btn {
     position: absolute;
     top: 23rem;
     left: calc(50vw - 60px);

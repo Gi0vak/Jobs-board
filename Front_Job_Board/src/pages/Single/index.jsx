@@ -57,18 +57,18 @@ const Single = () => {
                                         <h3 className='single-location'>{getJob.location}</h3>
                                     </div>
                                 </div>
-                                <div>
-                                    <button className="button-one">Apply Now</button>
+                                <div className="single-btn-apply">
+                                    <button className="button-one single-article-btn">Apply Now</button>
                                 </div>
                             </section>
                             <p>{getJob.description}</p>
                             <h1>Requirements</h1>
                             <p>{getJob.requirements.content}</p>
-                            <ul>{getJob.requirements.items.map(el => <li>{el}</li>)}</ul>
+                            <ul>{getJob.requirements.items.map(el => <li><p>{el}</p></li>)}</ul>
                             <h1>What You Will Do</h1>
                             <p>{getJob.role.content}</p>
                             <ol>
-                                {getJob.role.items.map(el => <li>{el}</li>)}
+                                {getJob.role.items.map(el => <li><p>{el}</p></li>)}
                             </ol>
                         </article>
 

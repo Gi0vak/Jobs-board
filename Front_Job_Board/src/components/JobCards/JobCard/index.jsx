@@ -1,6 +1,8 @@
 import './index.css';
 import { Link } from 'react-router-dom';
 import Moment from 'moment';
+import { DeleteJob } from '../../../API/api.js';
+const { useEffect, useState } = require('react');
 
 
 const JobCard = ({
@@ -10,6 +12,9 @@ const JobCard = ({
     company,
     position,
     location,
+    admin,
+    handleUpdate,
+    //handleDelete,
     id }) => {
 
 
@@ -17,6 +22,7 @@ const JobCard = ({
         const timeAgo = Moment(timestamp).fromNow();
         return <>{timeAgo}</>;
     }
+
     return (
         <article className='card'>
             {logo &&
@@ -25,6 +31,10 @@ const JobCard = ({
                     className="card-job-logo"
                     alt="logo job" />
                 )}
+            {admin == "true" && <button
+            //onClick={handleDelete(id)}
+            >delete</button>}
+            {admin == "true" && <Link to={`/updatejob/${id}`} ><button>update</button></Link>}
             <h3 className="card-job-contract-postedAT">
                 {TimeAgo(postedAt)}<span className='dot'> • </span>{contract}
             </h3 >
@@ -33,7 +43,6 @@ const JobCard = ({
             </Link>
             <h3 className='card-job-company'>{company}</h3>
             <h3 className='card-job-location'>{location}</h3>
-
 
         </article >
 

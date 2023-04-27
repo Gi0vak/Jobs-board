@@ -10,7 +10,7 @@ const Footer = () => {
                     <p>So Digital Inc.</p>
                 </div>
                 <div className='footer-right'>
-                    <button className='button-one'>Apply Now</button>
+                    <button className='button-one footer-btn'>Apply Now</button>
                 </div>
             </section>
         </>

@@ -6,21 +6,21 @@
 .single-body {
     position: relative;
     min-height: 600px;
-    max-width: 730px;
+    max-width: 750px;
     margin: 0 5vw;
 }
 
 .single-header {
-    position: absolute;
+    position: inherit;
     top: 120px;
     display: grid;
     grid-template-columns: 140fr 400fr 147fr;
-    justify-self: center;
     background-color: white;
     align-items: center;
     border-radius: 6px;
-    height: 140px;
     padding-right: 4.3rem;
+    height: 140px;
+    width: 100%;
 }
 
 .single-header>img {
@@ -38,7 +38,6 @@
     color: var(--dark-grey);
 }
 
-
 .single-header-company {
     display: flex;
     flex-direction: column;
@@ -46,15 +45,22 @@
     padding-left: 40px;
 }
 
-
-
 .single-article {
-    margin-top: 300px;
+    margin-top: 153px;
     padding: 48px 46px;
     background-color: white;
+    width: 100%;
+    border-radius: 6px;
 }
 
-@media screen and (max-width:600px) {
+.single-article-apply {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4.1rem;
+}
+
+@media screen and (max-width:750px) {
     .single-header {
         top: 140px;
         place-items: center;
@@ -69,10 +75,9 @@
 
     .single-header>img {
         position: absolute;
-        top: -12%;
-        left: 44%;
-        width: 50px;
-        height: 50px;
+        top: -27px;
+        width: 10%;
+        height: auto;
         border-radius: 15px;
     }
 
@@ -90,18 +95,24 @@
 
     .single-article {
         margin-top: 180px;
+    }
 
+    .single-article-apply {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 17.5rem;
+    }
+
+    .single-btn-apply {
+        width: 100%;
+    }
+
+    .single-article-btn {
+        width: 100%;
     }
 }
 
-
-
-.single-article-apply {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 4.1rem;
-}
 
 .single-article>p {
     padding-bottom: 4rem;
@@ -112,10 +123,30 @@
     padding-bottom: 2rem;
 }
 
+@media screen and (max-width:500px) {
+    .single-header>img {
+        position: absolute;
+        top: -9%;
+        max-width: 15%;
+        height: auto;
+        border-radius: 15px;
+    }
+}
+
 article>ul,
 article>ol {
     color: var(--dark-grey);
+    font-size: var(--p);
     margin: 0;
+    padding: 0 0 2rem 1rem;
+
+
+}
+
+article>ul>li>p,
+article>ol>li>p {
+    line-height: 2.6rem;
+    padding-left: 3.2rem;
 
 }
 

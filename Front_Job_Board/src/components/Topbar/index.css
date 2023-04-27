@@ -26,6 +26,13 @@
     z-index: -1;
 }
 
+@media screen and (max-width: 768px) {
+    .topbar-img {
+        min-width: 800px;
+        max-height: 175px;
+    }
+}
+
 .toggle-button {
     display: flex;
     width: 112px;

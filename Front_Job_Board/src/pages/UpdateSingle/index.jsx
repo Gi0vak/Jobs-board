@@ -3,10 +3,12 @@ import Topbar from '../../components/Topbar';
 import Footer from '../../components/Footer';
 import { useEffect, useState } from 'react';
 import { CreateJob } from '../../API/api.js';
-import { useNavigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
+import { UpdateJob } from '../../API/api.js';
+import { useParams } from 'react-router-dom';
 
 const NewSingle = () => {
-    const navigate = useNavigate();
+    const { jobID } = useParams();
     const [jobTitle, setJobTitle] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [jobDescription, setJobDescription] = useState("");
@@ -16,18 +18,19 @@ const NewSingle = () => {
     const [location, setLocation] = useState("");
     const [website, setWebsite] = useState("");
     const [apply, setApply] = useState("");
+    const [success, setSuccess] = useState(false);
     const [content, setContent] = useState("");
     const [content2, setContent2] = useState("");
     const [items, setItems] = useState([]);
     const [items2, setItems2] = useState([]);
 
-    const [success, setSuccess] = useState(false);
 
-    const handleSubmitCreate = async (e) => {
-        e.preventDefault()
+    const handleSubmitUpdate = async (event) => {
+        event.preventDefault();
         const newJob = {
             position: jobTitle,
             company: companyName,
+            logo: logo,
             logoBackground: logoBackground,
             contract: contract,
             location: location,
@@ -44,8 +47,10 @@ const NewSingle = () => {
             }
         };
         try {
-            await CreateJob(newJob);
-            navigate("/admin");
+            const update = await UpdateJob(newJob, jobID);
+            console.log(update)
+            setSuccess(true);
+            redirect("/admin");
 
         } catch (error) {
             console.log('Error creating job:', error);
@@ -53,12 +58,11 @@ const NewSingle = () => {
 
     };
 
-
     return (
         <section className="New-single">
             <Topbar />
             <section className="new-single-body">
-                <form className="new-single-form" onSubmit={handleSubmitCreate}>
+                <form className="new-single-form" onSubmit={handleSubmitUpdate}>
                     <label htmlFor="job-title">Job Title</label>
                     <input
                         type="text"
@@ -155,7 +159,6 @@ const NewSingle = () => {
                         value={items2}
                         onChange={(event) => setItems2(event.target.value)}
                     />
-
                     <button className="button-one" type="submit">Add Job</button>
                 </form>
                 {success && <p className="success">Job added successfully</p>}
