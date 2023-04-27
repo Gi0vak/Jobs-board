@@ -1,0 +1,10 @@
+.NewSingle {
+    width: 100vw;
+    display: grid;
+    place-items: center;
+
+}
+
+.single-body {
+    min-height: 600px;
+}

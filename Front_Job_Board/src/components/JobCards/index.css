@@ -1,0 +1,36 @@
+.cards {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 40px;
+    min-width: 1110px;
+    max-width: 1400px;
+    margin-right: auto;
+    margin-left: auto;
+    transition: all 0.5s ease-in-out;
+    min-height: auto;
+    margin-top: 240px;
+}
+
+.btn-center {
+    display: flex;
+    justify-content: center;
+    margin: 100px auto;
+}
+
+@media (max-width:1077px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        min-width: 700px;
+    }
+}
+
+@media (max-width:780px) {
+    .cards {
+        grid-template-columns: 1fr;
+        min-width: 300px;
+    }
+
+}

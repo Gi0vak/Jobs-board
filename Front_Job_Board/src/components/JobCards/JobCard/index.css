@@ -1,0 +1,74 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 13px;
+    padding-bottom: 3.2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 350px;
+    min-height: 228px;
+    padding: 49px 63px 36px 32px;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+
+.card.active {
+    transform: translateY(0);
+}
+
+
+
+.card img {
+    position: relative;
+    width: 90px;
+    height: auto;
+    position: absolute;
+    top: -52px;
+    left: 14px;
+}
+
+.card-job-logo:before {
+    content: " ";
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    min-width: 50px;
+    min-height: 50px;
+    background-color: lightblue;
+    border-radius: 6px;
+    z-index: 10;
+    color: white;
+    padding: 10px;
+}
+
+.card-job-contract-postedAT {
+    display: block ruby;
+    font-weight: 400;
+    color: var(--dark-grey);
+}
+
+.dot {
+    font-size: var(--h1);
+    color: var(--dark-grey);
+}
+
+.card-job-position {
+    font-weight: 700;
+    color: var(--very-dark-blue);
+}
+
+
+.card-job-company {
+    font-weight: 400;
+    color: var(--dark-grey);
+}
+
+.card-job-location {
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(89, 100, 224, 1);
+}

@@ -1,0 +1,29 @@
+.form-mobile {
+    position: sticky;
+    top: 121px;
+    display: grid;
+    align-items: center;
+    width: 80vw;
+    height: 80px;
+    grid-template-columns: 100fr 20fr 50fr;
+    background-color: #fff;
+    font-size: var(--h4);
+    padding: 0px 16px;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    transition: top 0.5s ease;
+    caret-color: rgba(89, 100, 224, 1);
+    border-radius: 6px;
+    z-index: 100;
+}
+
+
+.form-mobile.sticky {
+    top: 10px;
+    opacity: 0.8;
+}
+
+.filter {
+    display: flex;
+    justify-self: center;
+}

@@ -1,0 +1,149 @@
+/* kumbh-sans-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Kumbh Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/kumbh-sans-v20-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: url('../fonts/kumbh-sans-v20-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../fonts/kumbh-sans-v20-latin-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../fonts/kumbh-sans-v20-latin-regular.woff') format('woff'),
+        /* Modern Browsers */
+        url('../fonts/kumbh-sans-v20-latin-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../fonts/kumbh-sans-v20-latin-regular.svg#KumbhSans') format('svg');
+    /* Legacy iOS */
+}
+
+/* kumbh-sans-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Kumbh Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/kumbh-sans-v20-latin-700.eot');
+    /* IE9 Compat Modes */
+    src: url('../fonts/kumbh-sans-v20-latin-700.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../fonts/kumbh-sans-v20-latin-700.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../fonts/kumbh-sans-v20-latin-700.woff') format('woff'),
+        /* Modern Browsers */
+        url('../fonts/kumbh-sans-v20-latin-700.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../fonts/kumbh-sans-v20-latin-700.svg#KumbhSans') format('svg');
+    /* Legacy iOS */
+}
+
+
+
+:root {
+
+    --violet: rgb(89, 100, 224);
+    --light-violet: #939BF4;
+    --very-dark-blue: #19202D;
+    --midnight: #121721;
+    --light-grey: #F4F6F8;
+    --grey: #9DAEC2;
+    --dark-grey: #6E8098;
+    --font-family: 'Kumbh sans', sans-serif;
+    --h1: clamp(1.75rem, 1.618rem + 0.5634vw, 2.125rem);
+    --h2: clamp(1.5rem, 1.39rem + 0.4695vw, 1.8125rem);
+    --h3: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+    --h4: clamp(0.875rem, 0.809rem + 0.2817vw, 1.0625rem);
+    --p: clamp(1rem, 0.7799rem + 0.939vw, 1.625rem);
+    --btn1: var(--violet);
+    --btn1-hover: var(--light-violet);
+    --btn2: rgba(89, 100, 224, 0.1);
+    --btn2-hover: rgba(89, 100, 224, 0.3);
+
+}
+
+
+* {
+    box-sizing: border-box;
+
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F2F2F2;
+    font-family: var(--font-family);
+}
+
+h1 {
+    font-size: var(--h1);
+    color: var(--very-dark-blue);
+}
+
+h2 {
+    font-size: var(--h2);
+}
+
+h3 {
+    font-size: var(--h3);
+}
+
+h4 {
+    font-size: var(--h4);
+}
+
+p {
+    font-size: var(--p);
+    color: var(--dark-grey);
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+}
+
+input[type="text"] {
+    font-size: var(--p);
+}
+
+label {
+    font-size: var(--p);
+    font-weight: 700;
+    align-self: center;
+}
+
+.button-two {
+    background-color: var(--btn2);
+    height: 48px;
+    width: 147px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--violet);
+    border: none;
+    border-radius: 5px;
+}
+
+.button-two:hover {
+    background-color: var(--btn2-hover);
+}
+
+.button-one {
+    display: grid;
+    place-items: center;
+    width: 123px;
+    height: 48px;
+    background-color: #5964E0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-one:hover {
+    background-color: #939BF4;
+}

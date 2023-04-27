@@ -1,0 +1,11 @@
+.notfound {
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.notfound-body {
+    min-height: 600px;
+    margin-top: 240px;
+    font-size: 100px;
+}

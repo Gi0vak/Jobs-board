@@ -1,0 +1,9 @@
+.Footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    width: 100vw;
+    height: 96px;
+    background-color: white;
+    margin-top: 8rem;
+}

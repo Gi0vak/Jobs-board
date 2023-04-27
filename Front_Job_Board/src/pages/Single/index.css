@@ -1,0 +1,124 @@
+.Single {
+    display: grid;
+    place-items: center;
+}
+
+.single-body {
+    position: relative;
+    min-height: 600px;
+    max-width: 730px;
+    margin: 0 5vw;
+}
+
+.single-header {
+    position: absolute;
+    top: 120px;
+    display: grid;
+    grid-template-columns: 140fr 400fr 147fr;
+    justify-self: center;
+    background-color: white;
+    align-items: center;
+    border-radius: 6px;
+    height: 140px;
+    padding-right: 4.3rem;
+}
+
+.single-header>img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #E99210;
+    border-radius: 6px 0px 0px 6px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-header-company p {
+    color: var(--dark-grey);
+}
+
+
+.single-header-company {
+    display: flex;
+    flex-direction: column;
+    min-height: 56px;
+    padding-left: 40px;
+}
+
+
+
+.single-article {
+    margin-top: 300px;
+    padding: 48px 46px;
+    background-color: white;
+}
+
+@media screen and (max-width:600px) {
+    .single-header {
+        top: 140px;
+        place-items: center;
+        position: relative;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        width: 100%;
+        min-height: 20.5rem;
+        padding: 5rem 0;
+        text-align: center;
+    }
+
+    .single-header>img {
+        position: absolute;
+        top: -12%;
+        left: 44%;
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+    }
+
+    .single-header-company {
+        padding-left: 0;
+    }
+
+    .single-header-company>h1 {
+        padding-bottom: 1rem;
+    }
+
+    .single-header-company>p {
+        font-size: 1.5rem;
+    }
+
+    .single-article {
+        margin-top: 180px;
+
+    }
+}
+
+
+
+.single-article-apply {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4.1rem;
+}
+
+.single-article>p {
+    padding-bottom: 4rem;
+}
+
+.single-article>p {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+article>ul,
+article>ol {
+    color: var(--dark-grey);
+    margin: 0;
+
+}
+
+.single-location {
+    color: var(--violet);
+}

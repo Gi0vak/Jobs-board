@@ -1,0 +1,132 @@
+.form {
+    position: sticky;
+    top: 121px;
+    display: grid;
+    grid-template-columns: 463fr 300fr 206fr 123fr;
+    align-items: center;
+    align-content: center;
+    width: 80vw;
+    height: 80px;
+    background-color: #fff;
+    font-size: var(--h4);
+    padding: 0px 16px;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    transition: top 0.5s ease;
+    caret-color: rgba(89, 100, 224, 1);
+    border-radius: 6px;
+    z-index: 12;
+}
+
+.form.sticky {
+    top: 20px;
+    opacity: 0.8;
+}
+
+.form>input:focus-visible {
+    border: none;
+}
+
+.grid-filter {
+    display: flex;
+    padding-left: 16px;
+    min-height: 80px;
+    border-right: 1px solid #6E8098;
+}
+
+.input-filter {
+    width: 100%;
+    border: 0;
+    padding-left: 16px;
+
+}
+
+.grid-location {
+    display: flex;
+    border-right: 1px solid #6E8098;
+    align-items: center;
+    min-height: 80px;
+    padding-left: 16px;
+}
+
+input[type="checkbox"] {
+    height: 24px;
+    width: 24px;
+    -webkit-appearance: none;
+    background: var(--light-grey);
+    border: 1px solid var(--light-grey);
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 1.8rem;
+}
+
+input[type="checkbox"]:hover {
+
+    background: rgba(89, 100, 224, 0.25);
+    ;
+
+}
+
+input[type="checkbox"]:checked {
+    position: relative;
+    background: rgba(89, 100, 224, 1);
+    background-image: url('../../assets/pictures/check.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+.input-location {
+    width: 80%;
+    height: 58px;
+    border: 0;
+    padding-left: 16px;
+}
+
+.grid-full-time {
+    display: flex;
+    padding-left: 16px;
+}
+
+.loupe {
+    width: 24px;
+    height: auto;
+}
+
+.location {
+    width: 24px;
+    height: auto;
+}
+
+@media screen and (max-width:1100px) {
+    .form {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width:350px) {
+    .input-location {
+        display: none;
+    }
+
+    .grid-full-time {
+        display: flex;
+    }
+
+    .input-check {
+        width: 24px;
+        margin-right: 16px;
+        border: none;
+        background-color: rgba(25, 32, 45, 1);
+    }
+
+    .loupe {
+        width: 24px;
+        height: auto;
+    }
+
+    .location {
+        width: 24px;
+        height: auto;
+    }
+}
