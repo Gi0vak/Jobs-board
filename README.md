@@ -1,4 +1,4 @@
-# demo loom :
+# demo loom : https://www.loom.com/share/5e672268f71d495ea6b03a134a1c5c95
 
 
 # The Jobs Board 
@@ -74,8 +74,8 @@ To run this application on your local machine, you will need to follow these ste
    MONGO_URI=<Your MongoDB URI>
    ```
 
-4. Start the server by running `npm start` in the root directory.
-5. Start the client by running `npm start` in the root directory.
+4. Start the server by running `npm start` in the root directory.(localhost:8000)
+5. Start the client by running `npm start` in the root directory.(localhost:3000)
 
 ## API
 
