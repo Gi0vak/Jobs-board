@@ -2,10 +2,19 @@
     width: 100vw;
     display: grid;
     place-items: center;
+    padding-top: 8rem;
 }
 
 .notfound-body {
-    min-height: 600px;
+    min-width: 200px;
+    max-height: 300px;
     margin-top: 240px;
+    margin-bottom: 240px;
+    padding: 4rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.notfound-body>h1 {
     font-size: 100px;
 }

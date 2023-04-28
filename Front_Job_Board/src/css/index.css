@@ -76,6 +76,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #F2F2F2;
     font-family: var(--font-family);
+    height: 100%;
 }
 
 h1 {
@@ -146,4 +147,42 @@ label {
 
 .button-one:hover {
     background-color: #939BF4;
+}
+
+
+/* themes */
+
+.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.body-light {
+    background-color: #F2F2F2;
+}
+
+.dark {
+    background-color: #19202D !important;
+}
+
+
+.dark form {
+    background-color: rgba(25, 32, 45, 0.8) !important;
+    color: white;
+}
+
+.dark input,
+.dark textarea {
+    background-color: rgba(25, 32, 45, 0.8) !important;
+    color: white;
+}
+
+.dark h1,
+.dark h3,
+.dark label {
+    color: white;
+}
+
+.body-dark {
+    background-color: rgba(18, 23, 33, 1);
 }

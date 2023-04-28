@@ -7,7 +7,7 @@
     height: 80px;
     grid-template-columns: 100fr 20fr 50fr;
     background-color: #fff;
-    font-size: var(--h4);
+    font-size: var(--h3);
     padding: 0px 16px;
     margin-right: 10vw;
     margin-left: 10vw;

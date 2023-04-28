@@ -15,23 +15,24 @@ const getSearch = async (req, res) => {
     try {
         const query = {};
         if (position) {
-            query.position = position;
+            query.position = { $regex: position, $options: 'i' };
         }
         if (contract) {
-            query.contract = contract;
+            query.contract = { $regex: contract, $options: 'i' };
         }
         if (location) {
-            query.location = location;
+            query.location = { $regex: location, $options: 'i' };
         }
         if (company) {
-            query.company = company;
+            query.company = { $regex: company, $options: 'i' };
         }
-        const response = await Job.find(query)
-        res.json(response)
+        const response = await Job.find(query);
+        res.json(response);
     } catch (error) {
         res.status(500).send(error.message);
     }
 };
+
 const getJob = (req, res) => {
     Job.findOne(
         { _id: req.params.jobID })

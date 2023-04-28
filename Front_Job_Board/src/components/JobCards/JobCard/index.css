@@ -1,5 +1,9 @@
-.card {
+.card-grid {
     position: relative;
+}
+
+
+.card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,7 +27,6 @@
 
 
 .card img {
-    position: relative;
     width: 90px;
     height: auto;
     position: absolute;
@@ -71,4 +74,22 @@
     font-weight: 700;
     font-size: 14px;
     color: rgba(89, 100, 224, 1);
+}
+
+.delete-update {
+    position: absolute;
+    display: flex;
+    gap: 3rem;
+    bottom: 40px;
+    left: 220px;
+}
+
+.delete {
+    width: 30px;
+    cursor: pointer;
+}
+
+.update {
+    width: 35px;
+
 }

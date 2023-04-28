@@ -7,9 +7,8 @@ import { useEffect, useState } from 'react';
 import Media from 'react-media';
 import { GetJobs } from '../../API/api';
 import { Link } from 'react-router-dom';
-// import { DeleteJob } from '../../API/api';
 import { UpdateJob } from '../../API/api';
-const Home = () => {
+const Home = ({ theme, bodytheme }) => {
     const [getJobs, setGetJobs] = useState([]);
     const [n, setN] = useState(12);
 
@@ -43,21 +42,10 @@ const Home = () => {
             console.log(error);
         }
     }
-    // const handleDelete = async (id) => {
-    //     try {
-    //         const res = await DeleteJob(id);
-    //         console.log(res);
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    //     console.log(id);
-    // }
-
+    console.log('theme : ', theme);
     return (
         <>
-
-            <div className="Home">
+            <div className={`Home ${bodytheme}`}>
                 <div className="relative">
                     <Topbar />
                 </div>
@@ -74,7 +62,8 @@ const Home = () => {
                     handleMore={handleMore}
                     // handleDelete={handleDelete} 
                     handleUpdate={handleUpdate}
-                    admin="true" />
+                    admin="true"
+                    theme={theme} />
             </div>
 
         </>

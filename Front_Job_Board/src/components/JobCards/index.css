@@ -3,12 +3,11 @@
     place-content: center;
     place-items: center;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 30px;
-    row-gap: 40px;
-    min-width: 1110px;
+    column-gap: 4rem;
+    row-gap: 6rem;
     max-width: 1400px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 5vw;
+    margin-left: 5vw;
     transition: all 0.5s ease-in-out;
     min-height: auto;
     margin-top: 240px;
@@ -17,7 +16,7 @@
 .btn-center {
     display: flex;
     justify-content: center;
-    margin: 100px auto;
+    padding: 106px;
 }
 
 @media (max-width:1077px) {

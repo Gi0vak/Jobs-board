@@ -6,14 +6,14 @@ import { useEffect, useState } from 'react';
 const JobCards = ({
     datas,
     handleMore,
-    //handleDelete, 
     handleUpdate,
-    admin }) => {
+    admin,
+    theme }) => {
 
 
     return (
         <>
-            <section className="cards">
+            <section className={`cards`}>
                 {datas && datas.map((el, index) => {
 
                     return (
@@ -27,8 +27,8 @@ const JobCards = ({
                             location={el.location}
                             id={el._id}
                             admin={admin}
-                            //handleDelete={handleDelete}
                             handleUpdate={handleUpdate}
+                            theme={theme}
                         />)
                 })}
             </section>

@@ -6,44 +6,46 @@ import NewSingle from './pages/NewSingle';
 import UpdateSingle from './pages/UpdateSingle';
 import Page404 from './pages/Page404';
 import HomeAdmin from './pages/HomeAdmin';
+import { useState } from 'react';
+import { ThemeContext } from './ThemeContext';
+
 function App() {
+
+    const [theme, setTheme] = useState('light');
+    const [bodyTheme, setBodyTheme] = useState('body-light');
+
+    const toggleTheme = () => {
+        console.log('click');
+        setTheme(theme === 'light' ? 'dark' : 'light');
+        setBodyTheme(bodyTheme === 'body-light' ? 'body-dark' : 'body-light');
+    };
     return (
         <div className="App">
-            <Routes>
-                <Route
-                    path="/"
-                    element={<Home />} />
-                <Route
-                    path="/admin"
-                    element={<HomeAdmin />} />
-                <Route
-                    path="/jobs/:jobID"
-                    element={<Single />} />
-                <Route
-                    path="/newjob"
-                    element={<NewSingle />} />
-                <Route
-                    path="/updatejob/:jobID"
-                    element={<UpdateSingle />} />
-                <Route
-                    path="/Search?:params"
-                    element={<NewSingle />} />
-                <Route
-                    path="*"
-                    element={<Page404 />} />
-            </Routes>
+            <ThemeContext.Provider
+                value={{ theme, setTheme, bodyTheme, setBodyTheme, toggleTheme }}>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Home theme={theme} bodytheme={bodyTheme} />} />
+                    <Route
+                        path="/admin"
+                        element={<HomeAdmin theme={theme} bodytheme={bodyTheme} />} />
+                    <Route
+                        path="/jobs/:jobID"
+                        element={<Single theme={theme} bodytheme={bodyTheme} />} />
+                    <Route
+                        path="/newjob"
+                        element={<NewSingle theme={theme} bodytheme={bodyTheme} />} />
+                    <Route
+                        path="/updatejob/:jobID"
+                        element={<UpdateSingle theme={theme} bodytheme={bodyTheme} />} />
+                    <Route
+                        path="*"
+                        element={<Page404 theme={theme} bodytheme={bodyTheme} />} />
+                </Routes>
+            </ThemeContext.Provider>
         </div>
 
-        // <>
-        //   <div className="App">
-        //     <button onClick={handleClick}>click moi</button>
-        //     {datas.slice(0, 5)
-        //       .map((data, index) => (
-        //         < Card key={index} data={data} error={error} loading={isLoading} />
-        //       ))}
-        //   </div>
-        //   <Form />
-        // </>
     );
 }
 

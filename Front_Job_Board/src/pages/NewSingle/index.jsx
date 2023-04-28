@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { CreateJob } from '../../API/api.js';
 import { useNavigate } from 'react-router-dom';
 
-const NewSingle = () => {
+const NewSingle = ({ theme, bodytheme }) => {
     const navigate = useNavigate();
     const [jobTitle, setJobTitle] = useState("");
     const [companyName, setCompanyName] = useState("");
@@ -20,7 +20,6 @@ const NewSingle = () => {
     const [content2, setContent2] = useState("");
     const [items, setItems] = useState([]);
     const [items2, setItems2] = useState([]);
-
     const [success, setSuccess] = useState(false);
 
     const handleSubmitCreate = async (e) => {
@@ -55,10 +54,10 @@ const NewSingle = () => {
 
 
     return (
-        <section className="New-single">
+        <section className={`New-single ${bodytheme}`}>
             <Topbar />
             <section className="new-single-body">
-                <form className="new-single-form" onSubmit={handleSubmitCreate}>
+                <form className={`new-single-form ${theme}`} onSubmit={handleSubmitCreate}>
                     <label htmlFor="job-title">Job Title</label>
                     <input
                         type="text"
@@ -80,6 +79,7 @@ const NewSingle = () => {
                         type="text"
                         id="logo"
                         value={logo}
+                        placeholder='logo foot par défaut'
                         onChange={(event) => setLogo(event.target.value)}
                     />
 

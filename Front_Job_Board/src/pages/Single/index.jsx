@@ -4,8 +4,10 @@ import Footer from '../../components/Footer';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { GetJob } from '../../API/api';
+import { useNavigate } from 'react-router-dom';
 import Moment from 'moment';
-const Single = () => {
+const Single = ({ theme, bodytheme }) => {
+    const navigate = useNavigate();
     //#on met un useEffect avec un fetch qui recupere l id
     const { jobID } = useParams();
     console.log(parseInt(jobID));
@@ -32,13 +34,21 @@ const Single = () => {
         const timeAgo = Moment(timestamp).fromNow();
         return <>{timeAgo}</>;
     }
+    const handleUpdate = (e, jobID) => {
+        e.preventDefault();
+        navigate(`/updatejob/${jobID}`);
+    }
+    const handleDelete = (e, jobID) => {
+        e.preventDefault();
+        console.log(jobID);;
+    }
     return (
         <>
             <Topbar />
-            <div className="Single">
+            <div className={`Single ${bodytheme}`}>
                 {getJob.role && (
                     <section className="single-body">
-                        <div className="single-header">
+                        <div className={`single-header ${theme}`}>
                             <img src={getJob.logo} alt="logo job" />
                             <div className="single-header-company">
                                 <h1>{getJob.company}</h1>
@@ -48,7 +58,7 @@ const Single = () => {
                                 Company Site
                             </button>
                         </div>
-                        <article className='single-article'>
+                        <article className={`single-article ${theme}`}>
                             <section className='single-article-apply'>
                                 <div>
                                     <p>{TimeAgo(getJob.postedAt)} . {getJob.contract}</p>
@@ -70,6 +80,10 @@ const Single = () => {
                             <ol>
                                 {getJob.role.items.map(el => <li><p>{el}</p></li>)}
                             </ol>
+                            <div className='single-buttons'>
+                                <button className='button-one' onClick={((e) => { handleUpdate(e, jobID) })}>update</button>
+                                <button className='button-two' onCliCk={((e) => { handleDelete(e, jobID) })}>delete</button>
+                            </div>
                         </article>
 
                     </section>

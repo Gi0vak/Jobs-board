@@ -8,6 +8,8 @@
     min-height: 600px;
     max-width: 750px;
     margin: 0 5vw;
+    padding-bottom: 8rem;
+    z-index: 2;
 }
 
 .single-header {
@@ -51,6 +53,7 @@
     background-color: white;
     width: 100%;
     border-radius: 6px;
+
 }
 
 .single-article-apply {
@@ -152,4 +155,10 @@ article>ol>li>p {
 
 .single-location {
     color: var(--violet);
+}
+
+.single-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
 }

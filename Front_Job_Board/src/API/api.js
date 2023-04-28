@@ -41,9 +41,10 @@ export const DeleteJob = async (id) => {
     }
 }
 
-export const GetSearch = async () => {
+export const GetSearch = async (build) => {
+    console.log('build :', build);
     try {
-        const response = await fetch(`http://localhost:8000/api/search?`);
+        const response = await fetch(`http://localhost:8000/api/search?${build}`);
         const data = await response.json();
         console.log('getSearchData :', data);
         return data;

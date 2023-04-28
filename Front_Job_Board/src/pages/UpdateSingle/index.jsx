@@ -2,13 +2,14 @@ import './index.css';
 import Topbar from '../../components/Topbar';
 import Footer from '../../components/Footer';
 import { useEffect, useState } from 'react';
-import { CreateJob } from '../../API/api.js';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UpdateJob } from '../../API/api.js';
 import { useParams } from 'react-router-dom';
 
-const NewSingle = () => {
+const NewSingle = ({ theme, bodytheme }) => {
+    const navigate = useNavigate();
     const { jobID } = useParams();
+
     const [jobTitle, setJobTitle] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [jobDescription, setJobDescription] = useState("");
@@ -30,7 +31,6 @@ const NewSingle = () => {
         const newJob = {
             position: jobTitle,
             company: companyName,
-            logo: logo,
             logoBackground: logoBackground,
             contract: contract,
             location: location,
@@ -50,7 +50,7 @@ const NewSingle = () => {
             const update = await UpdateJob(newJob, jobID);
             console.log(update)
             setSuccess(true);
-            redirect("/admin");
+            navigate("/admin");
 
         } catch (error) {
             console.log('Error creating job:', error);
@@ -59,10 +59,10 @@ const NewSingle = () => {
     };
 
     return (
-        <section className="New-single">
+        <section className={`New-single ${bodytheme}`}>
             <Topbar />
             <section className="new-single-body">
-                <form className="new-single-form" onSubmit={handleSubmitUpdate}>
+                <form className={`new-single-form ${theme}`} onSubmit={handleSubmitUpdate}>
                     <label htmlFor="job-title">Job Title</label>
                     <input
                         type="text"
@@ -84,6 +84,7 @@ const NewSingle = () => {
                         type="text"
                         id="logo"
                         value={logo}
+                        placeholder='logo foot par défaut'
                         onChange={(event) => setLogo(event.target.value)}
                     />
 
@@ -159,9 +160,9 @@ const NewSingle = () => {
                         value={items2}
                         onChange={(event) => setItems2(event.target.value)}
                     />
-                    <button className="button-one" type="submit">Add Job</button>
+                    <button className="button-one" type="submit">Update Job</button>
                 </form>
-                {success && <p className="success">Job added successfully</p>}
+                {success && <p className="success">Job updated successfully</p>}
             </section>
             <Footer />
         </section>
