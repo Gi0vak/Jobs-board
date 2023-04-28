@@ -1,6 +1,12 @@
-# Recruitment Application
+Bien sûr, voici une mise à jour du README :
 
-This is a web application built using React JS that allows users to view job postings from partner companies and apply for them. The application uses NodeJS and MongoDB for the backend, providing a REST API that allows for listing, creating, updating, and deleting job postings. The following dependencies were used in the application:
+## Description
+
+This is a React.js application that allows candidates to view job listings from our partner companies and apply directly on our website. The application is backed by a Node.js server using MongoDB for storing job listings. The API is RESTful and allows the React application to perform basic CRUD operations on job listings as well as search for job listings using keywords.
+
+## Dependencies
+
+The following dependencies are used in this application:
 
 - "@testing-library/jest-dom": "^5.16.5"
 - "@testing-library/react": "^13.4.0"
@@ -17,109 +23,65 @@ This is a web application built using React JS that allows users to view job pos
 - "react-scripts": "5.0.1"
 - "web-vitals": "^2.1.4"
 
-There is no real authentication system, but the application has several pages, including a home page, a search page, a page for updating a single job posting, a page for creating a new job posting, a page for displaying a single job posting, and a 404 error page.
+## Pages
+
+The following pages are available in this application:
+
+- Home (x2)
+- Search
+- UpdateSingle
+- NewSingle
+- Single
+- 404
+
+## Data Structure
+
+The job listings are structured as follows:
+
+- id: Numeric identifier
+- company: Name of the company
+- logo: URL of the company logo (always in SVG format without a background color)
+- logoBackground: Background color to put behind the logo
+- position: Name of the job position
+- postedAt: When the listing was posted (date and time)
+- contract: Type of contract (full time, part time, etc.)
+- location: Country of the contract
+- website: URL of the company website
+- apply: Link to apply to the job listing (fake URL for now)
+- description: Job listing description (first paragraph only)
+- requirements:
+  - content: Text for the "Requirements" section
+  - items: Array for the list of requirements
+- role:
+  - content: Text for the "What You Will Do" section
+  - items: Array for the list of job duties
 
 ## Installation
 
-To install the application, clone the repository and navigate to the project directory. Then, install the dependencies using the following command:
+To run this application on your local machine, you will need to follow these steps:
 
-```bash
-npm install
-```
+1. Clone the repository.
+2. Install the necessary dependencies by running `npm install` in both the root directory and the `client/` directory.
+3. Create a `.env` file in the root directory and add the following variables:
 
-Create a .env file in the root directory of the project with the following variables:
+   ```
+   MONGO_URI=<Your MongoDB URI>
+   PORT=<The port you want the server to listen on>
+   ```
 
-```bash
-DB_HOST=<your MongoDB database URL>
-DB_NAME=<name of the MongoDB database>
-```
+4. Start the server by running `npm start` in the root directory.
+5. Start the client by running `npm start` in the `client/` directory.
 
-## Running the Application
+## API
 
-To run the application in development mode, use the following command:
+The API for this application allows the following operations:
 
-```bash
-npm start
-```
+- GET `/api/jobs`: Get a list of all job listings.
+- GET `/api/jobs/:id`: Get details of a single job listing.
+- POST `/api/jobs`: Create a new job listing.
+- PUT `/api/jobs/:id`: Update a job listing.
+- DELETE `/api/jobs/:id`: Delete a job listing.
 
-This will start the development server on `http://localhost:3000`.
+## Testing
 
-## Backend API
-
-The backend API provides the following endpoints:
-
-### List all job postings
-
-```
-GET /api/jobs
-```
-
-Returns a list of all job postings in the database.
-
-### Get a single job posting
-
-```
-GET /api/jobs/:id
-```
-
-Returns a single job posting with the specified ID.
-
-### Create a new job posting
-
-```
-POST /api/jobs
-```
-
-Creates a new job posting with the specified data.
-
-### Update a job posting
-
-```
-PUT /api/jobs/:id
-```
-
-Updates the job posting with the specified ID.
-
-### Delete a job posting
-
-```
-DELETE /api/jobs/:id
-```
-
-Deletes the job posting with the specified ID.
-
-### Search for job postings
-
-```
-GET /api/jobs/search?query=<search query>
-```
-
-Returns a list of job postings that match the specified search query.
-
-## Job Posting Data Structure
-
-Job postings are structured as follows:
-
-```
-id: Number
-company: String
-logo: String
-logoBackground: String
-position: String
-postedAt: Date
-contract: String
-location: String
-website: String
-apply: String
-description: String
-requirements: {
-    content: String,
-    items: [String]
-}
-role: {
-    content: String,
-    items: [String]
-}
-```
-
-The `id` field is a unique identifier for the job posting. The `company` field is the name of the company offering the job. The `logo` field is the URL of the company's logo in SVG format. The `logoBackground` field is the background color to be used behind the logo. The `position` field is the name of the job position. The `postedAt`
+To run the test suite for this application, run `npm test` in the `client/` directory. This will run all tests using Jest and display the results in the console.
