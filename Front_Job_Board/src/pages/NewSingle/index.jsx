@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import { useEffect, useState } from 'react';
 import { CreateJob } from '../../API/api.js';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NewSingle = ({ theme, bodytheme }) => {
     const navigate = useNavigate();
@@ -57,6 +58,9 @@ const NewSingle = ({ theme, bodytheme }) => {
         <section className={`New-single ${bodytheme}`}>
             <Topbar />
             <section className="new-single-body">
+                <div className='back-home'>
+                    <Link to="/admin">annuler</Link>
+                </div>
                 <form className={`new-single-form ${theme}`} onSubmit={handleSubmitCreate}>
                     <label htmlFor="job-title">Job Title</label>
                     <input

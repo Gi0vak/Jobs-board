@@ -42,12 +42,18 @@ const Home = ({ theme, bodytheme }) => {
             console.log(error);
         }
     }
-    console.log('theme : ', theme);
+    const handleSearch = (dataSearch) => {
+        setGetJobs(dataSearch)
+
+    }
     return (
         <>
             <div className={`Home ${bodytheme}`}>
                 <div className="relative">
                     <Topbar />
+                </div>
+                <div className='admin-back-home'>
+                    <Link to="/">Home</Link>
                 </div>
                 <Link to="/newjob" >
                     <button className='button-one add-job-btn'>
@@ -60,7 +66,7 @@ const Home = ({ theme, bodytheme }) => {
                 <JobCards
                     datas={getJobs}
                     handleMore={handleMore}
-                    // handleDelete={handleDelete} 
+                    handleSearch={handleSearch}
                     handleUpdate={handleUpdate}
                     admin="true"
                     theme={theme} />

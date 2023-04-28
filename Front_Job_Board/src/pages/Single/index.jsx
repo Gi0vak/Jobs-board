@@ -6,13 +6,13 @@ import { useParams } from 'react-router-dom';
 import { GetJob } from '../../API/api';
 import { useNavigate } from 'react-router-dom';
 import Moment from 'moment';
-const Single = ({ theme, bodytheme }) => {
+import { Link } from 'react-router-dom';
+const Single = ({ theme, bodytheme, admin }) => {
     const navigate = useNavigate();
-    //#on met un useEffect avec un fetch qui recupere l id
     const { jobID } = useParams();
     console.log(parseInt(jobID));
     const [getJob, setGetJob] = useState([]);
-
+    //fonction qui recupere les données d'un job correspondant au jobID fournit par le useParams
     useEffect(() => {
 
         const singleJob = async () => {
@@ -28,7 +28,6 @@ const Single = ({ theme, bodytheme }) => {
         }
         { getJob && singleJob() }
     }, [jobID]);
-    console.log(getJob);
 
     const TimeAgo = (timestamp) => {
         const timeAgo = Moment(timestamp).fromNow();
@@ -46,6 +45,9 @@ const Single = ({ theme, bodytheme }) => {
         <>
             <Topbar />
             <div className={`Single ${bodytheme}`}>
+                <div className='back-home'>
+                    <Link to="/">retour</Link>
+                </div>
                 {getJob.role && (
                     <section className="single-body">
                         <div className={`single-header ${theme}`}>

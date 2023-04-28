@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UpdateJob } from '../../API/api.js';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NewSingle = ({ theme, bodytheme }) => {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ const NewSingle = ({ theme, bodytheme }) => {
     const [items, setItems] = useState([]);
     const [items2, setItems2] = useState([]);
 
-
+    // Fonction pour l'update
     const handleSubmitUpdate = async (event) => {
         event.preventDefault();
         const newJob = {
@@ -62,6 +63,10 @@ const NewSingle = ({ theme, bodytheme }) => {
         <section className={`New-single ${bodytheme}`}>
             <Topbar />
             <section className="new-single-body">
+
+                <div className='back-home'>
+                    <Link to="/admin">annuler</Link>
+                </div>
                 <form className={`new-single-form ${theme}`} onSubmit={handleSubmitUpdate}>
                     <label htmlFor="job-title">Job Title</label>
                     <input

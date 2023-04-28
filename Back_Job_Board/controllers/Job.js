@@ -18,7 +18,7 @@ const getSearch = async (req, res) => {
             query.position = { $regex: position, $options: 'i' };
         }
         if (contract) {
-            query.contract = { $regex: contract, $options: 'i' };
+            query.contract = contract;
         }
         if (location) {
             query.location = { $regex: location, $options: 'i' };

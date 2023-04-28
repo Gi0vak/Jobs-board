@@ -47,7 +47,7 @@ const JobCard = ({
                     <span className='dot'> • </span>
                     {contract}
                 </h3 >
-                <Link className="card-link" to={`/jobs/${id}`}>
+                <Link className="card-link" admin={admin} to={`/jobs/${id}`}>
                     <h1 className="card-job-position">{position}</h1>
                 </Link>
                 <h3 className='card-job-company'>{company}</h3>

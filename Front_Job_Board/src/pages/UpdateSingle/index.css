@@ -1,13 +1,1 @@
-.NewSingle {
-    width: 100vw;
-    display: grid;
-    place-items: center;
-
-}
-
-.new-single-body {
-    min-height: 600px;
-    display: grid;
-    place-items: center;
-    margin: auto;
-}
+/* copy de New Single CSS */

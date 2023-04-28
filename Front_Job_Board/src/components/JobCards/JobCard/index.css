@@ -2,7 +2,6 @@
     position: relative;
 }
 
-
 .card {
     display: flex;
     flex-direction: column;
@@ -19,12 +18,9 @@
     transition: all 0.5s ease;
 }
 
-
 .card.active {
     transform: translateY(0);
 }
-
-
 
 .card img {
     width: 90px;

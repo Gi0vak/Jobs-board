@@ -20,7 +20,6 @@ const SearchbarMobile = ({ handleSearch }) => {
     const [placeholder2, setPlaceholder2] = useState("Filter by location...");
     const { theme } = useContext(ThemeContext);
 
-
     // Fonction qui permet de controler le position sticky de la barre de recherche
     useEffect(() => {
         const handleScroll = () => {
@@ -44,7 +43,6 @@ const SearchbarMobile = ({ handleSearch }) => {
     const handleInputTwoChange = (event) => {
         setSearchValueTwo(event.target.value);
     };
-
     // Fonction qui construit la requête de la barre de recherche
     const buildSearchQuery = (searchValueOne, searchValueTwo, checkInput) => {
         let searchQuery = '';
@@ -63,7 +61,6 @@ const SearchbarMobile = ({ handleSearch }) => {
 
         return searchQuery;
     };
-
     // Fonction qui lance la requête API pour la recherche
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,13 +72,12 @@ const SearchbarMobile = ({ handleSearch }) => {
         }
     }
 
-    const handleCheckboxChange = () => {
-        setChecked(checked => !checked);
-        checked ? setSearchValueThree("Full-time") : setSearchValueThree("");
-    }
-
     const handleFilter = (e) => {
         e.preventDefault()
+        const handleCheckboxChange = () => {
+            setChecked(checked => !checked);
+            checked ? setSearchValueThree("Full-time") : setSearchValueThree("");
+        }
         console.log(searchValueOne);
         return (
             <div className="grid-filter">
@@ -99,7 +95,8 @@ const SearchbarMobile = ({ handleSearch }) => {
                 </div>
                 <input
                     type="checkbox"
-                    className="checkbox" />
+                    className="checkbox"
+                    onChange={handleCheckboxChange} />
                 <button className="button-one" type="submit" >
                     Search
                 </button>

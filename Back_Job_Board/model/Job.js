@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
+// definition du schema JSON
 const JobSchema = new mongoose.Schema({
     company: {
         type: String,
-        required: true,
+        required: false,
     },
     logo: {
         type: String,
@@ -16,7 +17,7 @@ const JobSchema = new mongoose.Schema({
     },
     position: {
         type: String,
-        required: true,
+        required: false,
     },
     postedAt: {
         type: Date,
@@ -24,23 +25,24 @@ const JobSchema = new mongoose.Schema({
     },
     contract: {
         type: String,
-        required: true,
+        required: false,
+        default: "Full-time",
     },
     location: {
         type: String,
-        required: true,
+        required: false,
     },
     website: {
         type: String,
-        required: true,
+        required: false,
     },
     apply: {
         type: String,
-        required: true,
+        required: false,
     },
     description: {
         type: String,
-        required: true,
+        required: false,
     },
     requirements: {
         content: {

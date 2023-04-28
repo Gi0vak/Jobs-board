@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import Media from 'react-media';
 import { ThemeContext } from '../../ThemeContext';
 import { useContext } from 'react';
-
 import './index.css';
 
 const SearchBar = ({ handleSearch }) => {
@@ -13,7 +12,6 @@ const SearchBar = ({ handleSearch }) => {
     const [searchValueOne, setSearchValueOne] = useState("");
     const [searchValueTwo, setSearchValueTwo] = useState("");
     const [searchValueThree, setSearchValueThree] = useState("");
-    const [checked, setChecked] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
     const [placeholder1, setPlaceholder1] = useState("Filter by title, companies, expertise...");
     const [placeholder2, setPlaceholder2] = useState("Filter by location...");
@@ -46,35 +44,44 @@ const SearchBar = ({ handleSearch }) => {
     };
 
     // Fonction qui construit la requête de la barre de recherche
-    const buildSearchQuery = (searchValueOne, searchValueTwo, checkInput) => {
+    const buildSearchQuery = (searchValueOne, searchValueTwo, searchValueThree) => {
         let searchQuery = '';
-
+        if (searchValueThree) {
+            searchQuery += `${searchQuery ? '&' : ''}contract=${searchValueThree}`;
+        }
         if (searchValueOne && searchValueOne !== '') {
             searchQuery += `position=${searchValueOne}`;
         }
-
         if (searchValueTwo) {
             searchQuery += `${searchQuery ? '&' : ''}location=${searchValueTwo}`;
         }
-
-        if (checkInput) {
-            searchQuery += `${searchQuery ? '&' : ''}checkInput=${checkInput}`;
-        }
-
         return searchQuery;
     };
 
     // Fonction qui lance la requête API pour la recherche
     const handleSubmit = async (e) => {
+
         e.preventDefault();
+        const buildQuery = buildSearchQuery(searchValueOne, searchValueTwo, searchValueThree);
+        console.log('buildQuery', buildQuery);
         try {
-            const data = await GetSearch(buildSearchQuery(searchValueOne, searchValueTwo, searchValueThree));
+            const data = await GetSearch(buildQuery);
             return await handleSearch(data)
         } catch (error) {
             console.log(error);
         }
     }
-
+    // function to set a value if the input is checked
+    const handleCheckboxChange = async (e) => {
+        const checked = e.target.checked;
+        try {
+            checked ? setSearchValueThree("Full-time") : setSearchValueThree("");
+            console.log(checked);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // fonction appelée pour réduire le placeholder des inputs selon la taille de l'écran
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 1068) {
@@ -90,10 +97,6 @@ const SearchBar = ({ handleSearch }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const handleCheckboxChange = () => {
-        setChecked(checked => !checked);
-        checked ? setSearchValueThree("Full-time") : setSearchValueThree("");
-    }
 
 
     // Affichage de la barre de recherche
@@ -133,7 +136,8 @@ const SearchBar = ({ handleSearch }) => {
                 <input
                     type="checkbox"
                     className="checkbox"
-                    onChange={handleCheckboxChange} />
+                    onChange={(e) => handleCheckboxChange(e)}
+                />
                 <label>
                     <Media query="(max-width: 1210px)">
                         {match => match ? "Full Time" : "Full Time Only"}
