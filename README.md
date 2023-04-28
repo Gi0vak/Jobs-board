@@ -26,13 +26,15 @@ The following dependencies are used in this application:
 
 The following pages are available in this application:
 
-- Home (x2)
+- Home 
+- HomeAdmin
 - Search
 - UpdateSingle
 - NewSingle
 - Single
 - 404
 
+Click on the Devjobs Logo of the Topbar
 ## Data Structure
 
 The job listings are structured as follows:
@@ -60,16 +62,15 @@ The job listings are structured as follows:
 To run this application on your local machine, you will need to follow these steps:
 
 1. Clone the repository.
-2. Install the necessary dependencies by running `npm install` in both the root directory and the `client/` directory.
-3. Create a `.env` file in the root directory and add the following variables:
+2. Install the necessary dependencies by running `npm install` in both the root directory.
+3. Create a `.env` file in the root directory of the back application and add the following variables:
 
    ```
    MONGO_URI=<Your MongoDB URI>
-   PORT=<The port you want the server to listen on>
    ```
 
 4. Start the server by running `npm start` in the root directory.
-5. Start the client by running `npm start` in the `client/` directory.
+5. Start the client by running `npm start` in the root directory.
 
 ## API
 
@@ -83,4 +84,4 @@ The API for this application allows the following operations:
 
 ## Testing
 
-To run the test suite for this application, run `npm test` in the `client/` directory. This will run all tests using Jest and display the results in the console.
+To run the test suite for this application, run `npm test` in the root directory. This will run all tests using Jest and display the results in the console.
